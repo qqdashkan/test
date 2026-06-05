@@ -1,0 +1,91 @@
+.grid {
+  padding-block: 40px;
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    list-style: none;
+  }
+
+  &__card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+  }
+
+  &__image {
+    width: 288px;
+    max-width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border: var(--border);
+  }
+
+  &__name {
+    margin-top: 14px;
+    margin-bottom: 8px;
+    font-size: 18px;
+  }
+
+  &__price {
+    margin-top: auto;
+    margin-bottom: 14px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 8px;
+    font-size: 24px;
+
+    &::after {
+      content: 'shopping_cart';
+      font-family: 'Material Symbols Outlined';
+      color: var(--color-dark);
+      font-size: 24px;
+      font-weight: normal;
+      line-height: 1;
+      font-variation-settings: 'FILL' 1;
+    }
+  }
+
+  &__button {
+    @include reset-button;
+
+    width: 100%;
+    min-height: var(--button-height);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+    cursor: pointer;
+    font-family: 'Ermilov', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: var(--color-accent-dark);
+    }
+  }
+
+  @include tablet {
+    &__list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @include mobile {
+    &__list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    &__card {
+      padding: 12px;
+    }
+  }
+}

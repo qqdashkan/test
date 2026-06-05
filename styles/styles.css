@@ -1,0 +1,348 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+:where(ul[class]) {
+  list-style: none;
+}
+
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100%;
+  line-height: 1.5;
+}
+
+svg *[fill] {
+  fill: currentColor;
+}
+
+svg *[stroke] {
+  stroke: currentColor;
+}
+
+svg * {
+  transition-property: fill, stroke;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@font-face {
+  font-family: "Gilroy";
+  src: url("../fonts/Gilroy-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: bold;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ermilov";
+  src: url("../fonts/Ermilov-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: bold;
+  font-display: swap;
+}
+:root {
+  --color-accent: #c0e00b;
+  --color-accent-dark: #879d08;
+  --color-dark: #161616;
+  --color-white: #ffffff;
+  --border: 1px solid #dcdcdc;
+  --font-family-base: 'Gilroy', sans-serif;
+  --transition-duration: 0.2s;
+  --container-width: 1240px;
+  --container-padding-x: 20px;
+  --button-height: 50px;
+}
+
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+@media (max-width: 767px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) {
+  .visible-mobile {
+    display: none !important;
+  }
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-weight: 700;
+  line-height: 1.28;
+  color: var(--color-dark);
+  background-color: var(--color-white);
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.header {
+  padding-top: 37px;
+}
+.header__inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header__menu {
+  margin: 0 auto;
+  font-size: 24px;
+}
+.header__menu-list {
+  display: flex;
+  align-items: center;
+}
+.header__menu-link {
+  height: 69px;
+  display: inline-flex;
+  align-items: center;
+  padding-inline: 20px;
+  text-transform: uppercase;
+  background-color: var(--color-accent);
+}
+.header__menu-link:hover {
+  width: 100%;
+  background-color: var(--color-accent-dark);
+}
+.header__button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  height: 69px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-dark);
+  color: var(--color-accent);
+  cursor: pointer;
+}
+.header__button:hover {
+  color: var(--color-white);
+}
+.header__button-icon {
+  display: block;
+  font-size: 24px;
+  line-height: 1;
+}
+.header__burger-button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  width: 44px;
+  aspect-ratio: 1;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  background-color: var(--color-accent);
+  cursor: pointer;
+}
+.header__burger-line, .header__burger-button::before, .header__burger-button::after {
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-dark);
+}
+.header__burger-line {
+  display: block;
+}
+.header__burger-button::before, .header__burger-button::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  translate: -50% 0;
+}
+.header__burger-button::before {
+  top: 13px;
+}
+.header__burger-button::after {
+  bottom: 13px;
+}
+@media (max-width: 1023px) {
+  .header__menu {
+    width: 100%;
+    margin: 0;
+    font-size: 18px;
+  }
+  .header__menu-list {
+    width: 100%;
+  }
+  .header__menu-item {
+    flex: 1;
+  }
+  .header__menu-link {
+    width: 100%;
+    height: 56px;
+    justify-content: center;
+    padding-inline: 12px;
+  }
+  .header__button {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+  }
+}
+
+.grid {
+  padding-block: 40px;
+}
+.grid__list {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  list-style: none;
+}
+.grid__card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+.grid__image {
+  width: 288px;
+  max-width: 100%;
+  height: 230px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: var(--border);
+}
+.grid__name {
+  margin-top: 14px;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+.grid__price {
+  margin-top: auto;
+  margin-bottom: 14px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  -moz-column-gap: 8px;
+       column-gap: 8px;
+  font-size: 24px;
+}
+.grid__price::after {
+  content: "shopping_cart";
+  font-family: "Material Symbols Outlined";
+  color: var(--color-dark);
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 1;
+  font-variation-settings: "FILL" 1;
+}
+.grid__button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  min-height: var(--button-height);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-accent);
+  color: var(--color-dark);
+  cursor: pointer;
+  font-family: "Ermilov", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.grid__button:hover {
+  background-color: var(--color-accent-dark);
+}
+@media (max-width: 1023px) {
+  .grid__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 767px) {
+  .grid__list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .grid__card {
+    padding: 12px;
+  }
+}
